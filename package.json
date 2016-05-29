@@ -1,0 +1,12 @@
+{
+  "name": "openshift-cartridge-nodejs-template",
+  "version": "1.0.1",
+  "description": "Custom Node.js cartridge for OpenShift - sample application",
+  "private": true,
+  "main": "websimple.js",
+  "scripts": {
+    "start": "node websimple.js"
+  },
+  "author": "Lorenzo Girardin",
+  "license": "Apache"
+}
