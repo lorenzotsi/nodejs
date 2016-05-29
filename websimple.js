@@ -24,7 +24,10 @@ function processa(request, response)
 
 
 var web = http.createServer(processa);
-web.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function () {
+var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002;
+var ip   = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+
+web.listen(port, ip, function () {
   console.log('Application worker ' + process.pid + ' started ...');// ${process.pid} started...");
 });
 
