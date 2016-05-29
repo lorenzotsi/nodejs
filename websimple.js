@@ -1,7 +1,7 @@
 
 var http = require('http');
 var util = require('util');
-
+var env = process.env;
 var obj = { action : "test", version: 1.0    };
  
 function processa(request, response)
@@ -24,7 +24,9 @@ function processa(request, response)
 
 
 var web = http.createServer(processa);
-web.listen(8383);
+web.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function () {
+  console.log('Application worker ' + process.pid + ' started ...');// ${process.pid} started...");
+});
 
 var conCount = 0;
 web.on("connection", function(stream)
